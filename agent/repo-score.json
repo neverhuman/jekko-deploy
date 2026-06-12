@@ -1,16 +1,17 @@
 {
-  "report_fingerprint": "sha256:884facbe6b43d8ec7b3120200633d328da1ea221417bab3d0b1e7abfee590c69",
-  "input_fingerprint": "sha256:e4a237b93773311f0720beb2d925046eb3517f5cd2f4307a4761f61144930b7f",
-  "policy_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "report_fingerprint": "sha256:a4352465ebe2154bb6ff7a7d49b22c7e77e833c43b9524560855193fe5954b04",
+  "input_fingerprint": "sha256:536b97e4f1b07f705fa64216530f53c73c9d7efa96421df04adc99cddc9891cd",
+  "policy_fingerprint": "sha256:2e02fe1c1919de94a47a99164c962683a934c73ca5bb30bec62384f7b17fe742",
   "manifest_fingerprints": {
-    "owner_map": "sha256:43180077858101f345c90afbb2c335a66ae95fe35b76bf9158340c28d390248c",
-    "test_map": "sha256:25492933acc3b0cc06281231cc5ad5f765fa269c07e7301f7201766f3aba453c",
-    "generated_zones": "sha256:4abfb477fffea6a8188770acedaa56ead313947c05c107b74a5644345354723e",
-    "boundaries": "sha256:9e6ae6cb13a4b2160f2831b4d872236ead279a02a9b316b6fa8a06b5c4296723",
+    "owner_map": "sha256:8bd72ec81699838d4bc7fd7dd115ea9bddc5d98456e0acf7b808a552a43f77ee",
+    "test_map": "sha256:a075ce1906ec5b0bbd45c88ebdace15dd5e1e535f244646d77c2426958e7072b",
+    "generated_zones": "sha256:d2532f43a83ae3354aaf6f9a0da7d04f9da73155a8c16eeb4f90ecd646f0d1a2",
+    "boundaries": "sha256:2484a7c19b3a44402c72081e2e6bcf0d74bcc1125d073f07a7392c250068b581",
+    "proof_lanes": "sha256:814bb136a5b3156828133b2ea84b438315c1347841369fa5eb5c067daf66a067",
     "standard_version": "sha256:27e5d92b64d86aacffcf8461e47e810188bca4716aaa6a2d1f74140d65ad220e"
   },
   "dirty_worktree": true,
-  "generated_at": "1781216454",
+  "generated_at": "1781228573",
   "schema_url": "schemas/repo-score.schema.json",
   "standard": "jankurai",
   "standard_version": "0.9.0",
@@ -20,29 +21,29 @@
   "target_stack_id": "rust-ts-vite-react-postgres-bounded-python",
   "target_stack": "Rust core + TypeScript/React/Vite + PostgreSQL + generated contracts + exception-only Python AI/data service",
   "claimed_conformance_level": "HL3",
-  "observed_conformance_level": "HL3",
-  "conformance_decision": "pass",
+  "observed_conformance_level": "HL2",
+  "conformance_decision": "review",
   "conformance_blockers": [],
   "repo": ".",
-  "run_id": "1781216454",
-  "started_at": "1781216454",
-  "elapsed_ms": 53,
+  "run_id": "1781228573",
+  "started_at": "1781228573",
+  "elapsed_ms": 4224,
   "scope": {
     "mode": "full",
     "paths": []
   },
-  "score": 86,
-  "raw_score": 86,
+  "score": 84,
+  "raw_score": 84,
   "decision": {
     "status": "advisory",
     "minimum_score": 85,
     "passed": true,
     "hard_findings": 0,
-    "soft_findings": 2,
+    "soft_findings": 23,
     "ratchet": {
-      "baseline_score": 86,
+      "baseline_score": 84,
       "allowed_drop": 0,
-      "passed": true,
+      "passed": false,
       "score_delta": 0,
       "baseline_report_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
       "baseline_input_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
@@ -53,7 +54,7 @@
     }
   },
   "git": {
-    "head": "68b3a01",
+    "head": "47e8454",
     "base": null,
     "changed_files": 0,
     "mode": "full",
@@ -62,14 +63,8 @@
   "policy": {
     "path": "./agent/audit-policy.toml",
     "minimum_score": 85,
-    "fail_on": [
-      "critical",
-      "high"
-    ],
-    "advisory_on": [
-      "medium",
-      "low"
-    ],
+    "fail_on": [],
+    "advisory_on": [],
     "mode": "advisory",
     "standard_version": "0.9.0",
     "auditor_version": "1.6.10",
@@ -275,29 +270,29 @@
         "owner map present",
         "test/proof routing map present",
         "local `AGENTS.md` file(s)",
-        "reference-profile cell `domain` is canonical",
-        "reference-profile cell `domain` has local AGENTS.md guidance",
         "reference-profile cell `db` is canonical",
         "reference-profile cell `db` has local AGENTS.md guidance",
         "reference-profile cell `ops` is canonical",
         "reference-profile cell `ops` has local AGENTS.md guidance",
         "root `README.md` routes to workspace layout",
         "owner map covers audited paths",
-        "test map covers audited paths"
+        "test map covers audited paths",
+        "authored code file exceeds 500 LOC"
       ],
       "notes": []
     },
     {
       "name": "Contract and boundary integrity",
       "weight": 13,
-      "score": 93,
-      "weighted_points": 12.09,
+      "score": 100,
+      "weighted_points": 13.0,
       "evidence": [
+        "contract surface found",
         "generated contract artifacts found",
-        "polyglot boundary layout present",
         "boundary manifest present",
         "machine-readable schemas present",
         "Rust typed boundary helpers found",
+        "all contract sources have generated zone entries",
         "schema/tooling contract posture is clean"
       ],
       "notes": []
@@ -305,12 +300,11 @@
     {
       "name": "Proof lanes and test routing",
       "weight": 12,
-      "score": 100,
-      "weighted_points": 12.0,
+      "score": 96,
+      "weighted_points": 11.52,
       "evidence": [
         "one-command setup/validation lane found",
         "deterministic fast lane found",
-        "test runner present in automation surface",
         "GitHub workflow files present",
         "test/proof routing map present",
         "jankurai audit lane found in CI",
@@ -332,7 +326,9 @@
         "workflow linting tooling found",
         "security lane present",
         "agent-readiness audit gate found in CI",
-        "rust bad-behavior advisory signals: 1",
+        "rust bad-behavior advisory signals: 362",
+        "git bad-behavior advisory signals: 1",
+        "release bad-behavior advisory signals: 1",
         "secret scanning command is operational"
       ],
       "notes": []
@@ -340,13 +336,16 @@
     {
       "name": "Code shape and semantic surface",
       "weight": 12,
-      "score": 90,
-      "weighted_points": 10.8,
+      "score": 65,
+      "weighted_points": 7.8,
       "evidence": [
-        "largest authored code file: crates/domain/src/lib.rs (57 LOC)",
-        "copy-code advisory classes found: 1 (advisory only, no score impact)",
-        "authored code stays below hard LOC limits with no shape markers",
-        "rust bad-behavior advisory signals: 1",
+        "largest authored code file: crates/xtask/src/commands/split_family.rs (579 LOC)",
+        "code file exceeds 500 LOC",
+        "most code files stay under 300 LOC",
+        "copy-code advisory classes found: 23 (advisory only, no score impact)",
+        "rust bad-behavior advisory signals: 362",
+        "git bad-behavior advisory signals: 1",
+        "release bad-behavior advisory signals: 1",
         "no hard bad-behavior findings across detector-backed language families"
       ],
       "notes": []
@@ -354,29 +353,35 @@
     {
       "name": "Data truth and workflow safety",
       "weight": 8,
-      "score": 85,
-      "weighted_points": 6.8,
+      "score": 100,
+      "weighted_points": 8.0,
       "evidence": [
         "database surface present",
         "structured db boundary manifest present",
         "db boundary routes roots, migrations, and constraints",
-        "migration directory present"
+        "migration directory present",
+        "constraint or RLS language found",
+        "db policy docs describe constraints and rollback safety"
       ],
       "notes": []
     },
     {
       "name": "Observability and repair evidence",
       "weight": 8,
-      "score": 85,
-      "weighted_points": 6.8,
+      "score": 100,
+      "weighted_points": 8.0,
       "evidence": [
+        "observability libraries or patterns found",
         "ops/observability directory present",
+        "repair receipts or raw artifact language found",
         "repair queue schema is present",
         "agent-friendly exception pattern found",
         "repair-hint and receipt convention are documented",
         "repair receipt guidance is documented"
       ],
-      "notes": []
+      "notes": [
+        "free-form logging appears in scope"
+      ]
     },
     {
       "name": "Context economy and agent instructions",
@@ -396,12 +401,12 @@
     {
       "name": "Jankurai tool adoption and CI replacement",
       "weight": 7,
-      "score": 10,
-      "weighted_points": 0.7,
+      "score": 25,
+      "weighted_points": 1.75,
       "evidence": [
         "control-plane files present",
-        "applicable=14",
-        "configured=0",
+        "applicable=16",
+        "configured=12",
         "ci_evidence=0",
         "artifact_verified=0"
       ],
@@ -427,14 +432,10 @@
     {
       "name": "Build speed signals",
       "weight": 4,
-      "score": 80,
-      "weighted_points": 3.2,
+      "score": 30,
+      "weighted_points": 1.2,
       "evidence": [
-        "build acceleration markers found",
-        "targeted test/build commands found",
-        "locked dependency graph present",
-        "CI cache hint found",
-        "explicit cache marker plus narrow per-package target found"
+        "locked dependency graph present"
       ],
       "notes": []
     }
@@ -444,21 +445,33 @@
     "has_rendered_ux_lane": true,
     "missing_categories": [],
     "evidence": {
-      "accessibility": [],
+      "accessibility": [
+        ".jankurai/repo-score.json",
+        "agent/repo-score.json",
+        "agent/repo-score.md"
+      ],
       "api_mocks": [],
-      "artifact_backed_proof": [],
+      "artifact_backed_proof": [
+        "crates/jekko-core/src/config/sections.rs",
+        "crates/jekko-store/tests/hash_parity.rs",
+        "crates/xtask/src/commands/backend_contract/inventory.rs",
+        "crates/xtask/src/commands/schema.rs"
+      ],
       "design_tokens": [],
       "geometry_runtime": [],
       "layout_stability": [],
       "playwright_visual": [],
-      "storybook": [],
+      "storybook": [
+        ".jankurai/repo-score.json",
+        "agent/repo-score.json"
+      ],
       "visual_review": []
     }
   },
   "tool_adoption": {
     "control_plane_present": true,
-    "applicable_count": 14,
-    "configured_count": 0,
+    "applicable_count": 16,
+    "configured_count": 12,
     "ci_evidence_count": 0,
     "artifact_verified_count": 0,
     "replaced_count": 0,
@@ -466,18 +479,18 @@
       {
         "id": "audit-ci",
         "category": "audit",
-        "mode": "auto",
+        "mode": "advisory",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual repo scoring",
           "ad hoc score gates"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=advisory",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
@@ -490,18 +503,18 @@
       {
         "id": "proof-routing",
         "category": "proof",
-        "mode": "auto",
+        "mode": "advisory",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "ad hoc proof lane selection",
           "manual proof receipts"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=advisory",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai proof . --changed-from origin/main --out target/jankurai/proof-plan.json --md target/jankurai/proof-plan.md",
@@ -517,16 +530,16 @@
         "category": "proof",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual changed-surface routing",
           "ad hoc proof obligation lists"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai proofbind verify . --changed-from origin/main",
@@ -541,16 +554,16 @@
         "category": "proof",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "line-only coverage review",
           "manual in-diff mutation review"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai proofmark rust . --obligations target/jankurai/proofbind/obligations.json",
@@ -587,19 +600,19 @@
       {
         "id": "security",
         "category": "security",
-        "mode": "auto",
+        "mode": "advisory",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "gitleaks",
           "dependency review",
           "SBOM/provenance"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=advisory",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai security run . --out target/jankurai/security/evidence.json",
@@ -611,19 +624,19 @@
       {
         "id": "ci-bad-behavior",
         "category": "security",
-        "mode": "auto",
+        "mode": "advisory",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "mutable workflow refs",
           "secret echo/debug workflow checks",
           "non-blocking security scans"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=advisory",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "cargo test -p jankurai --test language_bad_behavior",
@@ -635,19 +648,19 @@
       {
         "id": "git-bad-behavior",
         "category": "audit",
-        "mode": "auto",
+        "mode": "advisory",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "destructive git automation",
           "force-push release scripts",
           "hidden stash-based state"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=advisory",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "cargo test -p jankurai --test language_bad_behavior",
@@ -661,17 +674,17 @@
         "category": "release",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual release checklist",
           "ad hoc tag and artifact review",
           "manual provenance review"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "cargo test -p jankurai --test language_bad_behavior",
@@ -705,15 +718,18 @@
         "id": "db-migration-analyze",
         "category": "db",
         "mode": "auto",
-        "applicable": false,
-        "status": "not_applicable",
+        "applicable": true,
+        "status": "missing",
         "replaced_tools": [
           "manual migration review"
         ],
         "evidence": [
           "mode=auto"
         ],
-        "missing": [],
+        "missing": [
+          "agent/tool-adoption.toml entry",
+          "CI command evidence"
+        ],
         "local_command": "jankurai migrate . --analyze --json target/jankurai/migration-report.json",
         "ci_command": "jankurai migrate . --analyze --json target/jankurai/migration-report.json",
         "artifact_paths": [
@@ -749,15 +765,15 @@
         "category": "rust",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual witness graphing"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai rust witness build .",
@@ -853,17 +869,17 @@
       {
         "id": "agent-tool-supply",
         "category": "security",
-        "mode": "auto",
+        "mode": "advisory",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual MCP/tool trust review"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=advisory",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
@@ -878,15 +894,15 @@
         "category": "release",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual launch checklist"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
@@ -900,15 +916,18 @@
         "id": "cost-budget",
         "category": "release",
         "mode": "auto",
-        "applicable": false,
-        "status": "not_applicable",
+        "applicable": true,
+        "status": "configured",
         "replaced_tools": [
           "manual spend review"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
-        "missing": [],
+        "missing": [
+          "CI command evidence"
+        ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
         "ci_command": "jankurai audit . --mode ratchet --baseline target/jankurai/accepted-baseline.json --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md",
         "artifact_paths": [
@@ -918,7 +937,7 @@
       }
     ],
     "evidence": {
-      "applicable_count": 14,
+      "applicable_count": 16,
       "applicable_tools": [
         "audit-ci",
         "proof-routing",
@@ -929,19 +948,34 @@
         "ci-bad-behavior",
         "git-bad-behavior",
         "release-bad-behavior",
+        "db-migration-analyze",
         "contract-drift",
         "rust-witness",
         "authz-matrix",
         "agent-tool-supply",
-        "release-readiness"
+        "release-readiness",
+        "cost-budget"
       ],
       "artifact_verified_count": 0,
       "artifact_verified_tools": [],
       "ci_evidence_count": 0,
       "ci_evidence_tools": [],
-      "config_present": false,
-      "configured_count": 0,
-      "configured_tools": [],
+      "config_present": true,
+      "configured_count": 12,
+      "configured_tools": [
+        "audit-ci",
+        "proof-routing",
+        "proofbind",
+        "proofmark-rust",
+        "security",
+        "ci-bad-behavior",
+        "git-bad-behavior",
+        "release-bad-behavior",
+        "rust-witness",
+        "agent-tool-supply",
+        "release-readiness",
+        "cost-budget"
+      ],
       "control_plane_present": true
     },
     "missing": [
@@ -954,11 +988,13 @@
       "ci-bad-behavior",
       "git-bad-behavior",
       "release-bad-behavior",
+      "db-migration-analyze",
       "contract-drift",
       "rust-witness",
       "authz-matrix",
       "agent-tool-supply",
-      "release-readiness"
+      "release-readiness",
+      "cost-budget"
     ]
   },
   "security_evidence": {},
@@ -968,7 +1004,7 @@
   "copy_code": {
     "schema_version": "1.1.0",
     "generated_by": "jankurai copy-code",
-    "generated_at": "2026-06-11T22:20:53.979743762+00:00",
+    "generated_at": "2026-06-12T01:42:49.021350255+00:00",
     "repo": ".",
     "auditor_version": "1.6.10",
     "status": "review",
@@ -1006,61 +1042,900 @@
       ]
     },
     "summary": {
-      "files_scanned": 48,
-      "files_considered": 2,
-      "active_files": 2,
+      "files_scanned": 325,
+      "files_considered": 160,
+      "active_files": 160,
       "exact_file_classes": 0,
       "hard_classes": 0,
-      "warning_classes": 1,
+      "warning_classes": 23,
       "hard_instances": 0,
-      "warning_instances": 3,
-      "duplicate_lines": 1,
-      "duplicate_tokens": 2,
-      "duplicate_bytes": 20,
-      "total_redundant_lines": 2,
-      "total_redundant_tokens": 4,
-      "total_redundant_bytes": 40
+      "warning_instances": 55,
+      "duplicate_lines": 85,
+      "duplicate_tokens": 308,
+      "duplicate_bytes": 2777,
+      "total_redundant_lines": 109,
+      "total_redundant_tokens": 394,
+      "total_redundant_bytes": 3672
     },
     "classes": [
       {
-        "id": "copy-code-body-rust-0a76d27a920f262f",
+        "id": "copy-code-unit-rust-83b6e64865c8ad9a",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "parse_timestamp",
+        "duplicate_lines": 4,
+        "duplicate_tokens": 12,
+        "duplicate_bytes": 145,
+        "instance_count": 4,
+        "total_redundant_lines": 12,
+        "total_redundant_tokens": 36,
+        "total_redundant_bytes": 435,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "51302c8d8f2a867f",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/close_issues.rs",
+            "language": "rust",
+            "start_line": 127,
+            "end_line": 131,
+            "unit_name": "parse_timestamp"
+          },
+          {
+            "path": "crates/xtask/src/compliance_close.rs",
+            "language": "rust",
+            "start_line": 183,
+            "end_line": 187,
+            "unit_name": "parse_timestamp"
+          },
+          {
+            "path": "crates/xtask/src/pr_compliance.rs",
+            "language": "rust",
+            "start_line": 146,
+            "end_line": 150,
+            "unit_name": "parse_timestamp"
+          },
+          {
+            "path": "crates/xtask/src/pr_standards.rs",
+            "language": "rust",
+            "start_line": 143,
+            "end_line": 147,
+            "unit_name": "parse_timestamp"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-0a0f95d0543a3429",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "run_checked",
+        "duplicate_lines": 6,
+        "duplicate_tokens": 18,
+        "duplicate_bytes": 171,
+        "instance_count": 3,
+        "total_redundant_lines": 12,
+        "total_redundant_tokens": 36,
+        "total_redundant_bytes": 342,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "7f5403a19b172514",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/publish_release.rs",
+            "language": "rust",
+            "start_line": 91,
+            "end_line": 97,
+            "unit_name": "run_checked"
+          },
+          {
+            "path": "crates/xtask/src/publish_release_package.rs",
+            "language": "rust",
+            "start_line": 183,
+            "end_line": 189,
+            "unit_name": "run_checked"
+          },
+          {
+            "path": "crates/xtask/src/publish_release_registry.rs",
+            "language": "rust",
+            "start_line": 229,
+            "end_line": 235,
+            "unit_name": "run_checked"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-38267ec2856e8316",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "days_from_epoch_to_year",
+        "duplicate_lines": 12,
+        "duplicate_tokens": 33,
+        "duplicate_bytes": 279,
+        "instance_count": 2,
+        "total_redundant_lines": 12,
+        "total_redundant_tokens": 33,
+        "total_redundant_bytes": 279,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "471deafec9938ce2",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/jekko-store/build.rs",
+            "language": "rust",
+            "start_line": 197,
+            "end_line": 209,
+            "unit_name": "days_from_epoch_to_year"
+          },
+          {
+            "path": "crates/jekko-store/src/migration.rs",
+            "language": "rust",
+            "start_line": 237,
+            "end_line": 249,
+            "unit_name": "days_from_epoch_to_year"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-848c888d447ff804",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "package_identity",
+        "duplicate_lines": 10,
+        "duplicate_tokens": 31,
+        "duplicate_bytes": 298,
+        "instance_count": 2,
+        "total_redundant_lines": 10,
+        "total_redundant_tokens": 31,
+        "total_redundant_bytes": 298,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "a4141f020d2228fa",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/publish_npm_package.rs",
+            "language": "rust",
+            "start_line": 44,
+            "end_line": 54,
+            "unit_name": "package_identity"
+          },
+          {
+            "path": "crates/xtask/src/publish_release_package.rs",
+            "language": "rust",
+            "start_line": 142,
+            "end_line": 152,
+            "unit_name": "package_identity"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-114c7d241dd0725f",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 3,
+        "duplicate_tokens": 14,
+        "duplicate_bytes": 142,
+        "instance_count": 4,
+        "total_redundant_lines": 9,
+        "total_redundant_tokens": 42,
+        "total_redundant_bytes": 426,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "69e241dd031d296c",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/xtask/src/commands/security_lane.rs",
+            "language": "rust",
+            "start_line": 189,
+            "end_line": 192,
+            "unit_name": "run_gitleaks"
+          },
+          {
+            "path": "crates/xtask/src/commands/security_lane.rs",
+            "language": "rust",
+            "start_line": 223,
+            "end_line": 226,
+            "unit_name": "run_cargo_audit"
+          },
+          {
+            "path": "crates/xtask/src/commands/security_lane.rs",
+            "language": "rust",
+            "start_line": 245,
+            "end_line": 248,
+            "unit_name": "run_zizmor"
+          },
+          {
+            "path": "crates/xtask/src/commands/security_lane.rs",
+            "language": "rust",
+            "start_line": 273,
+            "end_line": 276,
+            "unit_name": "run_syft"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-5c600f1c3b92a3ab",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "pull_request_field",
+        "duplicate_lines": 7,
+        "duplicate_tokens": 18,
+        "duplicate_bytes": 201,
+        "instance_count": 2,
+        "total_redundant_lines": 7,
+        "total_redundant_tokens": 18,
+        "total_redundant_bytes": 201,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "23ab909e7b494dd5",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/pr_compliance.rs",
+            "language": "rust",
+            "start_line": 83,
+            "end_line": 90,
+            "unit_name": "pull_request_field"
+          },
+          {
+            "path": "crates/xtask/src/pr_standards.rs",
+            "language": "rust",
+            "start_line": 157,
+            "end_line": 164,
+            "unit_name": "pull_request_field"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-f6187f18ee57db46",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "published",
+        "duplicate_lines": 6,
+        "duplicate_tokens": 23,
+        "duplicate_bytes": 223,
+        "instance_count": 2,
+        "total_redundant_lines": 6,
+        "total_redundant_tokens": 23,
+        "total_redundant_bytes": 223,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "41384dd244f039c9",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/publish_npm_package.rs",
+            "language": "rust",
+            "start_line": 56,
+            "end_line": 62,
+            "unit_name": "published"
+          },
+          {
+            "path": "crates/xtask/src/publish_release_package.rs",
+            "language": "rust",
+            "start_line": 154,
+            "end_line": 160,
+            "unit_name": "published"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-51ff1fe9df3414b1",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "pr_number",
+        "duplicate_lines": 6,
+        "duplicate_tokens": 13,
+        "duplicate_bytes": 163,
+        "instance_count": 2,
+        "total_redundant_lines": 6,
+        "total_redundant_tokens": 13,
+        "total_redundant_bytes": 163,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "27ef3c7843c410ed",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/pr_compliance.rs",
+            "language": "rust",
+            "start_line": 75,
+            "end_line": 81,
+            "unit_name": "pr_number"
+          },
+          {
+            "path": "crates/xtask/src/pr_standards.rs",
+            "language": "rust",
+            "start_line": 149,
+            "end_line": 155,
+            "unit_name": "pr_number"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-bd666f8c7d6c6d85",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "cumulative_days_before_month",
+        "duplicate_lines": 5,
+        "duplicate_tokens": 44,
+        "duplicate_bytes": 273,
+        "instance_count": 2,
+        "total_redundant_lines": 5,
+        "total_redundant_tokens": 44,
+        "total_redundant_bytes": 273,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "1d64f45c23d7d213",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/jekko-store/build.rs",
+            "language": "rust",
+            "start_line": 190,
+            "end_line": 195,
+            "unit_name": "cumulative_days_before_month"
+          },
+          {
+            "path": "crates/jekko-store/src/migration.rs",
+            "language": "rust",
+            "start_line": 230,
+            "end_line": 235,
+            "unit_name": "cumulative_days_before_month"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-34a26859a7b23f88",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "parses_rfc3339_timestamps",
+        "duplicate_lines": 4,
+        "duplicate_tokens": 19,
+        "duplicate_bytes": 148,
+        "instance_count": 2,
+        "total_redundant_lines": 4,
+        "total_redundant_tokens": 19,
+        "total_redundant_bytes": 148,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "3cb87676911b7ead",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/close_issues.rs",
+            "language": "rust",
+            "start_line": 138,
+            "end_line": 142,
+            "unit_name": "parses_rfc3339_timestamps"
+          },
+          {
+            "path": "crates/xtask/src/compliance_close.rs",
+            "language": "rust",
+            "start_line": 194,
+            "end_line": 198,
+            "unit_name": "parses_rfc3339_timestamps"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-f5b94f52ae70428f",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "is_team_member",
+        "duplicate_lines": 4,
+        "duplicate_tokens": 18,
+        "duplicate_bytes": 174,
+        "instance_count": 2,
+        "total_redundant_lines": 4,
+        "total_redundant_tokens": 18,
+        "total_redundant_bytes": 174,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "113517cc600ff901",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/pr_compliance.rs",
+            "language": "rust",
+            "start_line": 92,
+            "end_line": 96,
+            "unit_name": "is_team_member"
+          },
+          {
+            "path": "crates/xtask/src/pr_management.rs",
+            "language": "rust",
+            "start_line": 95,
+            "end_line": 99,
+            "unit_name": "is_team_member"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-6307a10619820c22",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "cutoff",
+        "duplicate_lines": 4,
+        "duplicate_tokens": 12,
+        "duplicate_bytes": 119,
+        "instance_count": 2,
+        "total_redundant_lines": 4,
+        "total_redundant_tokens": 12,
+        "total_redundant_bytes": 119,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "8b6a17954ffba041",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/xtask/src/pr_compliance.rs",
+            "language": "rust",
+            "start_line": 69,
+            "end_line": 73,
+            "unit_name": "cutoff"
+          },
+          {
+            "path": "crates/xtask/src/pr_standards.rs",
+            "language": "rust",
+            "start_line": 137,
+            "end_line": 141,
+            "unit_name": "cutoff"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-dad576af78483e13",
         "kind": "exact_unit_different_name",
         "severity": "warning",
         "confidence": "medium",
         "language": "rust",
         "duplicate_lines": 1,
-        "duplicate_tokens": 2,
-        "duplicate_bytes": 20,
-        "instance_count": 3,
-        "total_redundant_lines": 2,
-        "total_redundant_tokens": 4,
-        "total_redundant_bytes": 40,
+        "duplicate_tokens": 5,
+        "duplicate_bytes": 47,
+        "instance_count": 4,
+        "total_redundant_lines": 3,
+        "total_redundant_tokens": 15,
+        "total_redundant_bytes": 141,
         "effective_severity": "warning",
         "hard_fail": false,
-        "fingerprint": "bcf83229c5e78979",
+        "fingerprint": "cc934fbca0967524",
         "reason": "same body appears under different names across files",
         "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
         "instances": [
           {
-            "path": "crates/domain/src/lib.rs",
+            "path": "crates/xtask/src/commands/package.rs",
             "language": "rust",
-            "start_line": 24,
-            "end_line": 25,
-            "unit_name": "repair_hint"
+            "start_line": 256,
+            "end_line": 257,
+            "unit_name": "sha256_of_file_matches_known_vector"
           },
           {
-            "path": "crates/domain/src/lib.rs",
+            "path": "crates/xtask/src/commands/package.rs",
             "language": "rust",
-            "start_line": 33,
-            "end_line": 34,
-            "unit_name": "common_fixes"
+            "start_line": 270,
+            "end_line": 271,
+            "unit_name": "run_with_no_artifact_errors"
           },
           {
-            "path": "crates/domain/src/lib.rs",
+            "path": "crates/xtask/src/commands/package.rs",
             "language": "rust",
-            "start_line": 50,
-            "end_line": 51,
-            "unit_name": "fmt"
+            "start_line": 280,
+            "end_line": 281,
+            "unit_name": "run_skip_build_stages_existing_binary"
+          },
+          {
+            "path": "crates/xtask/src/commands/package.rs",
+            "language": "rust",
+            "start_line": 298,
+            "end_line": 299,
+            "unit_name": "run_skip_build_respects_custom_dist_root"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-a0350927b5e4ed3e",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 5,
+        "duplicate_bytes": 47,
+        "instance_count": 3,
+        "total_redundant_lines": 2,
+        "total_redundant_tokens": 10,
+        "total_redundant_bytes": 94,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "ab86329039f78e7b",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/xtask/src/commands/jankurai_gate.rs",
+            "language": "rust",
+            "start_line": 254,
+            "end_line": 255,
+            "unit_name": "evidence_filter_narrows_match"
+          },
+          {
+            "path": "crates/xtask/src/commands/jankurai_gate.rs",
+            "language": "rust",
+            "start_line": 275,
+            "end_line": 276,
+            "unit_name": "non_high_severities_are_ignored"
+          },
+          {
+            "path": "crates/xtask/src/commands/jankurai_gate.rs",
+            "language": "rust",
+            "start_line": 295,
+            "end_line": 296,
+            "unit_name": "counts_strict_blockers_caps_and_finding_fallbacks"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-00417a3514aef289",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "is_leap_year",
+        "duplicate_lines": 2,
+        "duplicate_tokens": 9,
+        "duplicate_bytes": 61,
+        "instance_count": 2,
+        "total_redundant_lines": 2,
+        "total_redundant_tokens": 9,
+        "total_redundant_bytes": 61,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "a17893b45ca1ed92",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/jekko-store/build.rs",
+            "language": "rust",
+            "start_line": 186,
+            "end_line": 188,
+            "unit_name": "is_leap_year"
+          },
+          {
+            "path": "crates/jekko-store/src/migration.rs",
+            "language": "rust",
+            "start_line": 226,
+            "end_line": 228,
+            "unit_name": "is_leap_year"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-e7e6c6dac485983e",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 2,
+        "duplicate_tokens": 5,
+        "duplicate_bytes": 64,
+        "instance_count": 2,
+        "total_redundant_lines": 2,
+        "total_redundant_tokens": 5,
+        "total_redundant_bytes": 64,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "fd7619d18ed76690",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/xtask/src/pr_compliance.rs",
+            "language": "rust",
+            "start_line": 102,
+            "end_line": 104,
+            "unit_name": "title_is_issue_exempt"
+          },
+          {
+            "path": "crates/xtask/src/pr_standards.rs",
+            "language": "rust",
+            "start_line": 172,
+            "end_line": 174,
+            "unit_name": "title_is_exempt"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-unit-rust-e50fa76f3d18b424",
+        "kind": "exact_unit_same_name",
+        "severity": "warning",
+        "confidence": "high",
+        "language": "rust",
+        "unit_name": "from_str",
+        "duplicate_lines": 2,
+        "duplicate_tokens": 3,
+        "duplicate_bytes": 28,
+        "instance_count": 2,
+        "total_redundant_lines": 2,
+        "total_redundant_tokens": 3,
+        "total_redundant_bytes": 28,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "426444315c18a63a",
+        "reason": "same-name semantic unit copied across multiple files",
+        "recommended_action": "keep the named unit in one owner and call it from the other sites",
+        "instances": [
+          {
+            "path": "crates/jekko-core/src/keybind/chord.rs",
+            "language": "rust",
+            "start_line": 106,
+            "end_line": 108,
+            "unit_name": "from_str"
+          },
+          {
+            "path": "crates/jekko-core/src/keybind/set.rs",
+            "language": "rust",
+            "start_line": 62,
+            "end_line": 64,
+            "unit_name": "from_str"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-ab80b0029566ed53",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 1,
+        "duplicate_bytes": 9,
+        "instance_count": 3,
+        "total_redundant_lines": 2,
+        "total_redundant_tokens": 2,
+        "total_redundant_bytes": 18,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "20b49ec159823a76",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/xtask/src/pr_workflow_contract/assertions.rs",
+            "language": "rust",
+            "start_line": 133,
+            "end_line": 134,
+            "unit_name": "mapping"
+          },
+          {
+            "path": "crates/xtask/src/pr_workflow_contract/assertions.rs",
+            "language": "rust",
+            "start_line": 139,
+            "end_line": 140,
+            "unit_name": "sequence"
+          },
+          {
+            "path": "crates/xtask/src/pr_workflow_contract/assertions.rs",
+            "language": "rust",
+            "start_line": 175,
+            "end_line": 176,
+            "unit_name": "value_to_string"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-55173cda99569eab",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 7,
+        "duplicate_bytes": 51,
+        "instance_count": 2,
+        "total_redundant_lines": 1,
+        "total_redundant_tokens": 7,
+        "total_redundant_bytes": 51,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "229de883db7fb6ab",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/jekko-store/src/daemon/port/graph_model.rs",
+            "language": "rust",
+            "start_line": 131,
+            "end_line": 132,
+            "unit_name": "repo_graph_node_from_row"
+          },
+          {
+            "path": "crates/jekko-store/src/daemon/reasoning/artifacts.rs",
+            "language": "rust",
+            "start_line": 161,
+            "end_line": 162,
+            "unit_name": "reasoning_edge_from_row"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-685dcf132e8b55e5",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 7,
+        "duplicate_bytes": 51,
+        "instance_count": 2,
+        "total_redundant_lines": 1,
+        "total_redundant_tokens": 7,
+        "total_redundant_bytes": 51,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "dc102bf1771831fb",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/jekko-store/src/daemon/reasoning/artifacts.rs",
+            "language": "rust",
+            "start_line": 142,
+            "end_line": 143,
+            "unit_name": "reasoning_artifact_from_row"
+          },
+          {
+            "path": "crates/jekko-store/src/daemon/reasoning/memory.rs",
+            "language": "rust",
+            "start_line": 113,
+            "end_line": 114,
+            "unit_name": "memory_capsule_from_row"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-d25b9d888cbb860d",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 6,
+        "duplicate_bytes": 40,
+        "instance_count": 2,
+        "total_redundant_lines": 1,
+        "total_redundant_tokens": 6,
+        "total_redundant_bytes": 40,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "37edc2238e10a5df",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/jekko-store/src/session/part.rs",
+            "language": "rust",
+            "start_line": 79,
+            "end_line": 80,
+            "unit_name": "part_from_row"
+          },
+          {
+            "path": "crates/jekko-store/src/session/session_message.rs",
+            "language": "rust",
+            "start_line": 94,
+            "end_line": 95,
+            "unit_name": "session_message_from_row"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-eeaead46c56e1043",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 5,
+        "duplicate_bytes": 38,
+        "instance_count": 2,
+        "total_redundant_lines": 1,
+        "total_redundant_tokens": 5,
+        "total_redundant_bytes": 38,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "033b4efbd59dbb61",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/xtask/src/publish_build_plan.rs",
+            "language": "rust",
+            "start_line": 157,
+            "end_line": 158,
+            "unit_name": "run_emits_all_targets_by_default"
+          },
+          {
+            "path": "crates/xtask/src/publish_build_plan.rs",
+            "language": "rust",
+            "start_line": 191,
+            "end_line": 192,
+            "unit_name": "serialises_to_expected_json_shape"
+          }
+        ]
+      },
+      {
+        "id": "copy-code-body-rust-a240a080d2fd0150",
+        "kind": "exact_unit_different_name",
+        "severity": "warning",
+        "confidence": "medium",
+        "language": "rust",
+        "duplicate_lines": 1,
+        "duplicate_tokens": 0,
+        "duplicate_bytes": 5,
+        "instance_count": 2,
+        "total_redundant_lines": 1,
+        "total_redundant_tokens": 0,
+        "total_redundant_bytes": 5,
+        "effective_severity": "warning",
+        "hard_fail": false,
+        "fingerprint": "469aeafd31d29584",
+        "reason": "same body appears under different names across files",
+        "recommended_action": "choose one owner for the shared body or intentionally differentiate the behavior",
+        "instances": [
+          {
+            "path": "crates/xtask/src/close_stale_prs.rs",
+            "language": "rust",
+            "start_line": 231,
+            "end_line": 232,
+            "unit_name": "last_activity"
+          },
+          {
+            "path": "crates/xtask/src/shared.rs",
+            "language": "rust",
+            "start_line": 173,
+            "end_line": 174,
+            "unit_name": "live_prod_allowed_keys"
           }
         ]
       }
@@ -1072,8 +1947,8 @@
     ]
   },
   "profile_structure": {
-    "applicable_count": 3,
-    "canonical_count": 3,
+    "applicable_count": 2,
+    "canonical_count": 2,
     "noncanonical_count": 0,
     "guidance_missing_count": 0,
     "cells": [
@@ -1112,20 +1987,18 @@
       },
       {
         "id": "domain",
-        "applicable": true,
-        "status": "canonical",
+        "applicable": false,
+        "status": "not_applicable",
         "canonical_path": "crates/domain/",
-        "detected_paths": [
-          "crates/domain"
-        ],
+        "detected_paths": [],
         "aliases": [
           "domain/",
           "core/"
         ],
-        "guidance_status": "present",
+        "guidance_status": "not_required",
         "owner": "crates/domain",
         "proof_lane": "unit / property tests",
-        "agent_fix": "keep `crates/domain/AGENTS.md` aligned with owns / forbidden / proof lane guidance"
+        "agent_fix": "no action"
       },
       {
         "id": "application",
@@ -1254,18 +2127,9 @@
       }
     ],
     "evidence": {
-      "applicable_count": 3,
-      "canonical_count": 3,
+      "applicable_count": 2,
+      "canonical_count": 2,
       "detected_cells": [
-        {
-          "canonical_path": "crates/domain/",
-          "detected_paths": [
-            "crates/domain"
-          ],
-          "guidance_status": "present",
-          "id": "domain",
-          "status": "canonical"
-        },
         {
           "canonical_path": "db/",
           "detected_paths": [
@@ -1294,6 +2158,30 @@
   "findings": [
     {
       "severity": "medium",
+      "category": "shape",
+      "path": ".",
+      "problem": "`Code shape and semantic surface` scored 65 below the standard floor of 85",
+      "agent_fix": "split large or ambiguous authored code into smaller semantic modules with focused tests",
+      "evidence": [
+        "largest authored code file: crates/xtask/src/commands/split_family.rs (579 LOC)",
+        "code file exceeds 500 LOC",
+        "most code files stay under 300 LOC",
+        "copy-code advisory classes found: 23 (advisory only, no score impact)"
+      ],
+      "check_id": "HLT-001-DEAD-MARKER:shape",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "repository-scan",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:c81ad19761769d41945a7917991aaa42098bb36e33fa5318bc5f32227e519756",
+      "rule_id": "HLT-001-DEAD-MARKER",
+      "tlr": "Entropy",
+      "lane": "fast",
+      "docs_url": "docs/audit-rubric.md#future-hostile-language-rule",
+      "owner": "tools"
+    },
+    {
+      "severity": "medium",
       "category": "security",
       "path": ".github/workflows/jankurai.yml",
       "problem": "`Security and supply-chain posture` scored 80 below the standard floor of 85",
@@ -1314,43 +2202,670 @@
       "tlr": "Security, secrets, agency",
       "lane": "security",
       "docs_url": "docs/audit-rubric.md#top-level-risk-mapping",
-      "owner": "ops"
+      "owner": "ci-release"
     },
     {
       "severity": "medium",
       "category": "proof",
       "path": "Justfile",
-      "problem": "`Build speed signals` scored 80 below the standard floor of 85",
+      "problem": "`Build speed signals` scored 30 below the standard floor of 85",
       "agent_fix": "add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration",
       "evidence": [
-        "build acceleration markers found",
-        "targeted test/build commands found",
-        "locked dependency graph present",
-        "CI cache hint found"
+        "locked dependency graph present"
       ],
       "check_id": "HLT-018-PERF-CONCURRENCY-DRIFT:proof",
       "hardness": "soft",
       "confidence": 0.76,
       "evidence_kind": "repository-scan",
       "rerun_command": "just fast",
-      "fingerprint": "sha256:2f2531223d7f7036c20d44b58cd52e64aa53ffd6cb85e01e541c1feff0c09cb2",
+      "fingerprint": "sha256:5a2a647775dcb2bfabb2b25a7bc50806600cb3d9e0da806eb6ff5379b36f84c5",
       "rule_id": "HLT-018-PERF-CONCURRENCY-DRIFT",
       "tlr": "Verification",
       "lane": "fast",
       "docs_url": "docs/testing.md",
-      "owner": "workspace"
+      "owner": "ci-release"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260127222353_familiar_lady_ursula/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260127222353_familiar_lady_ursula/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:07ceb174972f0832b48a3a110e9e0862efd5460d3f30ae14f944a84444ba25b2",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260127222353_familiar_lady_ursula/migration.sql",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260127222353_familiar_lady_ursula/migration.sql` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:79b94e335731140d341fa94cafe410b6161c9ea45f4adfdbad25c4e4aacf8100",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260127222353_familiar_lady_ursula/snapshot.json",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:6cff897208aa619787dedd5bc1d19d73924e47941fe1497bbc25231b43f32b3b",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260211171708_add_project_commands/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260211171708_add_project_commands/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260211171708_add_project_commands/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:559fe8ebbb9d3df791343a69d87962742f1b836ede14c00c1cd86074bb865b3e",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260211171708_add_project_commands/migration.sql",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/migration.sql` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260211171708_add_project_commands/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260211171708_add_project_commands/migration.sql` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:4a64f9c7335ab543d2b5bdd8d68ac4378858191d2f82dd2d786d7aace4d8bb4d",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260211171708_add_project_commands/snapshot.json",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/snapshot.json` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260211171708_add_project_commands/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260211171708_add_project_commands/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:b442b2c4487d67d36080cdb928002ba9e4c5e3411c63dfc59a56d910b2c53fb4",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260213144116_wakeful_the_professor/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260213144116_wakeful_the_professor/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:52de400ccb638c6f9b62f3fea7cec8d690ec20cb886585c08b1d0ae1973b16ec",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260213144116_wakeful_the_professor/migration.sql",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/migration.sql` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260213144116_wakeful_the_professor/migration.sql` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:14b6060d04623bb0d72b90e4ece2f863a41dc157001712311e4df947df8fdbce",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260213144116_wakeful_the_professor/snapshot.json",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260213144116_wakeful_the_professor/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:c2e593c14ac4902de509db42898c658d1bf1d058c2242c3ffcf80eda8ac55d94",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260225215848_workspace/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260225215848_workspace/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260225215848_workspace/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:f6456e7908f14b0559b0e77f2761bf02f740c091a21ec20440cb5d03377bd8b7",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260225215848_workspace/migration.sql",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/migration.sql` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260225215848_workspace/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260225215848_workspace/migration.sql` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:64aa529c5e0c4c02eef3710858bb601120ccdb885a0548ea2a772b22180b8e6b",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260225215848_workspace/snapshot.json",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/snapshot.json` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260225215848_workspace/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260225215848_workspace/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:6729cdc343425d1bb89844829777756925810501c9dd195fba85b19ea165374e",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260227213759_add_session_workspace_id/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260227213759_add_session_workspace_id/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:8ecf1dbc55791925bef61b1be03e5430f6987bf12088f04f73d5f03f47a6939e",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260227213759_add_session_workspace_id/migration.sql",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/migration.sql` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260227213759_add_session_workspace_id/migration.sql` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:7ee546b38f57c88fa5dba0e6048959083f3990a9e114af0cc91b54644a689af3",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260227213759_add_session_workspace_id/snapshot.json",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260227213759_add_session_workspace_id/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:216840905e114188cb3cdc7f8e2c0f51c1c8c17ee1e64a8055b2598d0b09f7d5",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260228203230_blue_harpoon/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260228203230_blue_harpoon/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:18d8ee8161b88953cee78bd218cb91ce6bab998ae3bc6d82f05636b9152ce9a3",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260228203230_blue_harpoon/migration.sql",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/migration.sql` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260228203230_blue_harpoon/migration.sql` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:4bba31a1d9c2d8b022a16ec43c86f353b84a2fa6905a272373fd2105415308d9",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260228203230_blue_harpoon/snapshot.json",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/snapshot.json` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260228203230_blue_harpoon/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:e9a7b131d1b10ceb45d2c62f6721dae1048211e2276fee8f6f588ccf441ad3f1",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/20260303231226_add_workspace_fields/meta.toml",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260303231226_add_workspace_fields/meta.toml` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/20260303231226_add_workspace_fields/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/20260303231226_add_workspace_fields/meta.toml` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:2e30bcfd53b007d697c7a6ab98f6a99148f3ac74efe1091d3d64f6849ee78e6e",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
+    },
+    {
+      "severity": "medium",
+      "category": "governance",
+      "path": "db/migrations/README.md",
+      "problem": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/README.md` instead of a regeneration",
+      "agent_fix": "revert the in-place edit to `db/migrations/README.md` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "evidence": [
+        "`db/migrations/README.md` was hand-edited inside declared generated zone `db/migrations/`"
+      ],
+      "check_id": "HLT-045-GENERATED-ZONE-GOVERNANCE:governance",
+      "hardness": "soft",
+      "confidence": 0.76,
+      "evidence_kind": "contract-manifest",
+      "rerun_command": "just fast",
+      "fingerprint": "sha256:5d2fd628372810295d0ae592c0e855a290baacbccc16ee8f140e74b71231a186",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "docs_url": "agent/JANKURAI_STANDARD.md#generated-zones",
+      "owner": "data"
     }
   ],
   "agent_fix_queue": [
+    {
+      "path": "db/migrations/20260127222353_familiar_lady_ursula/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260127222353_familiar_lady_ursula/migration.sql",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260127222353_familiar_lady_ursula/snapshot.json",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260211171708_add_project_commands/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260211171708_add_project_commands/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260211171708_add_project_commands/migration.sql",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260211171708_add_project_commands/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/migration.sql` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260211171708_add_project_commands/snapshot.json",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260211171708_add_project_commands/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/snapshot.json` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260213144116_wakeful_the_professor/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260213144116_wakeful_the_professor/migration.sql",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/migration.sql` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260213144116_wakeful_the_professor/snapshot.json",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260225215848_workspace/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260225215848_workspace/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260225215848_workspace/migration.sql",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260225215848_workspace/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/migration.sql` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260225215848_workspace/snapshot.json",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260225215848_workspace/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/snapshot.json` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260227213759_add_session_workspace_id/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260227213759_add_session_workspace_id/migration.sql",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/migration.sql` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260227213759_add_session_workspace_id/snapshot.json",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260228203230_blue_harpoon/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260228203230_blue_harpoon/migration.sql",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/migration.sql` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260228203230_blue_harpoon/snapshot.json",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/snapshot.json` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/20260303231226_add_workspace_fields/meta.toml",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/20260303231226_add_workspace_fields/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260303231226_add_workspace_fields/meta.toml` instead of a regeneration"
+    },
+    {
+      "path": "db/migrations/README.md",
+      "priority": "medium",
+      "rule_id": "HLT-045-GENERATED-ZONE-GOVERNANCE",
+      "tlr": "Contracts/data",
+      "lane": "contract",
+      "owner": "data",
+      "task": "revert the in-place edit to `db/migrations/README.md` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand",
+      "why": "generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/README.md` instead of a regeneration"
+    },
     {
       "path": "Justfile",
       "priority": "medium",
       "rule_id": "HLT-018-PERF-CONCURRENCY-DRIFT",
       "tlr": "Verification",
       "lane": "fast",
-      "owner": "workspace",
+      "owner": "ci-release",
       "task": "add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration",
-      "why": "`Build speed signals` scored 80 below the standard floor of 85"
+      "why": "`Build speed signals` scored 30 below the standard floor of 85"
+    },
+    {
+      "path": ".",
+      "priority": "medium",
+      "rule_id": "HLT-001-DEAD-MARKER",
+      "tlr": "Entropy",
+      "lane": "fast",
+      "owner": "tools",
+      "task": "split large or ambiguous authored code into smaller semantic modules with focused tests",
+      "why": "`Code shape and semantic surface` scored 65 below the standard floor of 85"
     },
     {
       "path": ".github/workflows/jankurai.yml",
@@ -1358,7 +2873,7 @@
       "rule_id": "HLT-016-SUPPLY-CHAIN-DRIFT",
       "tlr": "Security, secrets, agency",
       "lane": "security",
-      "owner": "ops",
+      "owner": "ci-release",
       "task": "wire secret, dependency, provenance, and workflow scans into an operational CI lane",
       "why": "`Security and supply-chain posture` scored 80 below the standard floor of 85"
     }

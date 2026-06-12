@@ -7,12 +7,12 @@
 - Target stack ID: `rust-ts-vite-react-postgres-bounded-python`
 - Target stack: `Rust core + TypeScript/React/Vite + PostgreSQL + generated contracts + exception-only Python AI/data service`
 - Repo: `.`
-- Run ID: `1781216454`
-- Started at: `1781216454`
-- Elapsed: `53` ms
+- Run ID: `1781228573`
+- Started at: `1781228573`
+- Elapsed: `4224` ms
 - Scope: `full`
-- Raw score: `86`
-- Final score: `86`
+- Raw score: `84`
+- Final score: `84`
 - Decision: `advisory`
 - Minimum score: `85`
 - Caps applied: `none`
@@ -70,9 +70,9 @@
 
 ## Copy-Code Redundancy
 
-- Status: `review` hard=`0` warning=`1` files=`2`
+- Status: `review` hard=`0` warning=`23` files=`160`
 - Policy: min-lines=`10` min-tokens=`100` max-findings=`50` include-tests=`false` strict=`false`
-- Duplicate volume: lines=`1` tokens=`2` bytes=`20`
+- Duplicate volume: lines=`85` tokens=`308` bytes=`2777`
 
 - Notes:
   - hard classes are limited to exact active-source file matches and substantial exact same-name units
@@ -81,33 +81,55 @@
 
 | Kind | Severity | Language | Lines | Tokens | Instances | Reason |
 | --- | --- | --- | ---: | ---: | --- | --- |
-| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 2 | `crates/domain/src/lib.rs:24-25, crates/domain/src/lib.rs:33-34, crates/domain/src/lib.rs:50-51` | `same body appears under different names across files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 4 | 12 | `crates/xtask/src/close_issues.rs:127-131, crates/xtask/src/compliance_close.rs:183-187, crates/xtask/src/pr_compliance.rs:146-150, crates/xtask/src/pr_standards.rs:143-147` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 6 | 18 | `crates/xtask/src/publish_release.rs:91-97, crates/xtask/src/publish_release_package.rs:183-189, crates/xtask/src/publish_release_registry.rs:229-235` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 12 | 33 | `crates/jekko-store/build.rs:197-209, crates/jekko-store/src/migration.rs:237-249` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 10 | 31 | `crates/xtask/src/publish_npm_package.rs:44-54, crates/xtask/src/publish_release_package.rs:142-152` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 3 | 14 | `crates/xtask/src/commands/security_lane.rs:189-192, crates/xtask/src/commands/security_lane.rs:223-226, crates/xtask/src/commands/security_lane.rs:245-248, crates/xtask/src/commands/security_lane.rs:273-276` | `same body appears under different names across files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 7 | 18 | `crates/xtask/src/pr_compliance.rs:83-90, crates/xtask/src/pr_standards.rs:157-164` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 6 | 23 | `crates/xtask/src/publish_npm_package.rs:56-62, crates/xtask/src/publish_release_package.rs:154-160` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 6 | 13 | `crates/xtask/src/pr_compliance.rs:75-81, crates/xtask/src/pr_standards.rs:149-155` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 5 | 44 | `crates/jekko-store/build.rs:190-195, crates/jekko-store/src/migration.rs:230-235` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 4 | 19 | `crates/xtask/src/close_issues.rs:138-142, crates/xtask/src/compliance_close.rs:194-198` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 4 | 18 | `crates/xtask/src/pr_compliance.rs:92-96, crates/xtask/src/pr_management.rs:95-99` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 4 | 12 | `crates/xtask/src/pr_compliance.rs:69-73, crates/xtask/src/pr_standards.rs:137-141` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 5 | `crates/xtask/src/commands/package.rs:256-257, crates/xtask/src/commands/package.rs:270-271, crates/xtask/src/commands/package.rs:280-281, crates/xtask/src/commands/package.rs:298-299` | `same body appears under different names across files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 5 | `crates/xtask/src/commands/jankurai_gate.rs:254-255, crates/xtask/src/commands/jankurai_gate.rs:275-276, crates/xtask/src/commands/jankurai_gate.rs:295-296` | `same body appears under different names across files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 2 | 9 | `crates/jekko-store/build.rs:186-188, crates/jekko-store/src/migration.rs:226-228` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 2 | 5 | `crates/xtask/src/pr_compliance.rs:102-104, crates/xtask/src/pr_standards.rs:172-174` | `same body appears under different names across files` |
+| `ExactUnitSameName` | `Warning` | `rust` | 2 | 3 | `crates/jekko-core/src/keybind/chord.rs:106-108, crates/jekko-core/src/keybind/set.rs:62-64` | `same-name semantic unit copied across multiple files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 1 | `crates/xtask/src/pr_workflow_contract/assertions.rs:133-134, crates/xtask/src/pr_workflow_contract/assertions.rs:139-140, crates/xtask/src/pr_workflow_contract/assertions.rs:175-176` | `same body appears under different names across files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 7 | `crates/jekko-store/src/daemon/port/graph_model.rs:131-132, crates/jekko-store/src/daemon/reasoning/artifacts.rs:161-162` | `same body appears under different names across files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 7 | `crates/jekko-store/src/daemon/reasoning/artifacts.rs:142-143, crates/jekko-store/src/daemon/reasoning/memory.rs:113-114` | `same body appears under different names across files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 6 | `crates/jekko-store/src/session/part.rs:79-80, crates/jekko-store/src/session/session_message.rs:94-95` | `same body appears under different names across files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 5 | `crates/xtask/src/publish_build_plan.rs:157-158, crates/xtask/src/publish_build_plan.rs:191-192` | `same body appears under different names across files` |
+| `ExactUnitDifferentName` | `Warning` | `rust` | 1 | 0 | `crates/xtask/src/close_stale_prs.rs:231-232, crates/xtask/src/shared.rs:173-174` | `same body appears under different names across files` |
 
 ## Dimensions
 
 | Dimension | Weight | Score | Weighted | Evidence |
 | --- | ---: | ---: | ---: | --- |
 | Ownership and navigation surface | 13 | 100 | 13.00 | root `AGENTS.md` present; owner map present |
-| Contract and boundary integrity | 13 | 93 | 12.09 | generated contract artifacts found; polyglot boundary layout present |
-| Proof lanes and test routing | 12 | 100 | 12.00 | one-command setup/validation lane found; deterministic fast lane found |
+| Contract and boundary integrity | 13 | 100 | 13.00 | contract surface found; generated contract artifacts found |
+| Proof lanes and test routing | 12 | 96 | 11.52 | one-command setup/validation lane found; deterministic fast lane found |
 | Security and supply-chain posture | 12 | 80 | 9.60 | lockfile present; secret or dependency scan tooling found |
-| Code shape and semantic surface | 12 | 90 | 10.80 | largest authored code file: crates/domain/src/lib.rs (57 LOC); copy-code advisory classes found: 1 (advisory only, no score impact) |
-| Data truth and workflow safety | 8 | 85 | 6.80 | database surface present; structured db boundary manifest present |
-| Observability and repair evidence | 8 | 85 | 6.80 | ops/observability directory present; repair queue schema is present |
+| Code shape and semantic surface | 12 | 65 | 7.80 | largest authored code file: crates/xtask/src/commands/split_family.rs (579 LOC); code file exceeds 500 LOC |
+| Data truth and workflow safety | 8 | 100 | 8.00 | database surface present; structured db boundary manifest present |
+| Observability and repair evidence | 8 | 100 | 8.00 | observability libraries or patterns found; ops/observability directory present |
 | Context economy and agent instructions | 7 | 93 | 6.51 | root `AGENTS.md` present; root `AGENTS.md` stays short |
-| Jankurai tool adoption and CI replacement | 7 | 10 | 0.70 | control-plane files present; applicable=14 |
+| Jankurai tool adoption and CI replacement | 7 | 25 | 1.75 | control-plane files present; applicable=16 |
 | Python containment and polyglot hygiene | 4 | 100 | 4.00 | no Python files in scope |
-| Build speed signals | 4 | 80 | 3.20 | build acceleration markers found; targeted test/build commands found |
+| Build speed signals | 4 | 30 | 1.20 | locked dependency graph present |
 
 ## Reference Profile Structure
 
-- Applicable cells: `3` canonical=`3` noncanonical=`0` guidance missing=`0`
+- Applicable cells: `2` canonical=`2` noncanonical=`0` guidance missing=`0`
 
 | Cell | Status | Canonical | Detected | Aliases | Guidance | Owner | Proof lane | Agent fix |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `web` | `not_applicable` | `apps/web/` | `-` | `frontend/, ui/, packages/web/, packages/ui/` | `not_required` | `apps/web` | `rendered UX / Playwright` | `no action` |
 | `api` | `not_applicable` | `apps/api/` | `-` | `api/, server/, backend/` | `not_required` | `apps/api` | `edge handler / contract tests` | `no action` |
-| `domain` | `canonical` | `crates/domain/` | `crates/domain` | `domain/, core/` | `present` | `crates/domain` | `unit / property tests` | `keep `crates/domain/AGENTS.md` aligned with owns / forbidden / proof lane guidance` |
+| `domain` | `not_applicable` | `crates/domain/` | `-` | `domain/, core/` | `not_required` | `crates/domain` | `unit / property tests` | `no action` |
 | `application` | `not_applicable` | `crates/application/` | `-` | `application/, usecases/, use-cases/` | `not_required` | `crates/application` | `use-case / authz tests` | `no action` |
 | `adapters` | `not_applicable` | `crates/adapters/` | `-` | `adapters/, infra/, integrations/` | `not_required` | `crates/adapters` | `adapter integration tests` | `no action` |
 | `workers` | `not_applicable` | `crates/workers/` | `-` | `workers/, jobs/, scheduler/, queue/` | `not_required` | `crates/workers` | `workflow / replay tests` | `no action` |
@@ -125,35 +147,35 @@
 ## Tool Adoption
 
 - Control plane present: `true`
-- Applicable tools: `14`
-- Configured: `0`
+- Applicable tools: `16`
+- Configured: `12`
 - CI evidence: `0`
 - Artifact verified: `0`
 - Replaced count: `0`
-- Missing CI evidence: `audit-ci, proof-routing, proofbind, proofmark-rust, copy-code, security, ci-bad-behavior, git-bad-behavior, release-bad-behavior, contract-drift, rust-witness, authz-matrix, agent-tool-supply, release-readiness`
+- Missing CI evidence: `audit-ci, proof-routing, proofbind, proofmark-rust, copy-code, security, ci-bad-behavior, git-bad-behavior, release-bad-behavior, db-migration-analyze, contract-drift, rust-witness, authz-matrix, agent-tool-supply, release-readiness, cost-budget`
 
 | Tool | Category | Mode | Status | Replaced | Artifacts |
 | --- | --- | --- | --- | --- | --- |
-| `audit-ci` | `audit` | `auto` | `missing` | `manual repo scoring, ad hoc score gates` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
-| `proof-routing` | `proof` | `auto` | `missing` | `ad hoc proof lane selection, manual proof receipts` | `.jankurai/repo-score.json, .jankurai/repo-score.md, target/jankurai/repair-queue.jsonl` |
-| `proofbind` | `proof` | `auto` | `missing` | `manual changed-surface routing, ad hoc proof obligation lists` | `target/jankurai/proofbind/surface-witness.json, target/jankurai/proofbind/obligations.json` |
-| `proofmark-rust` | `proof` | `auto` | `missing` | `line-only coverage review, manual in-diff mutation review` | `target/jankurai/proofmark/proofmark-receipt.json, target/jankurai/proofmark/proof-receipt.json` |
+| `audit-ci` | `audit` | `advisory` | `configured` | `manual repo scoring, ad hoc score gates` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
+| `proof-routing` | `proof` | `advisory` | `configured` | `ad hoc proof lane selection, manual proof receipts` | `.jankurai/repo-score.json, .jankurai/repo-score.md, target/jankurai/repair-queue.jsonl` |
+| `proofbind` | `proof` | `auto` | `configured` | `manual changed-surface routing, ad hoc proof obligation lists` | `target/jankurai/proofbind/surface-witness.json, target/jankurai/proofbind/obligations.json` |
+| `proofmark-rust` | `proof` | `auto` | `configured` | `line-only coverage review, manual in-diff mutation review` | `target/jankurai/proofmark/proofmark-receipt.json, target/jankurai/proofmark/proof-receipt.json` |
 | `copy-code` | `audit` | `auto` | `missing` | `ad hoc copy-code review, manual duplication triage` | `target/jankurai/copy-code.json, target/jankurai/copy-code.md` |
-| `security` | `security` | `auto` | `missing` | `gitleaks, dependency review, SBOM/provenance` | `target/jankurai/security/evidence.json` |
-| `ci-bad-behavior` | `security` | `auto` | `missing` | `mutable workflow refs, secret echo/debug workflow checks, non-blocking security scans` | `target/jankurai/language-bad-behavior.log` |
-| `git-bad-behavior` | `audit` | `auto` | `missing` | `destructive git automation, force-push release scripts, hidden stash-based state` | `target/jankurai/language-bad-behavior.log` |
-| `release-bad-behavior` | `release` | `auto` | `missing` | `manual release checklist, ad hoc tag and artifact review, manual provenance review` | `target/jankurai/language-bad-behavior.log` |
+| `security` | `security` | `advisory` | `configured` | `gitleaks, dependency review, SBOM/provenance` | `target/jankurai/security/evidence.json` |
+| `ci-bad-behavior` | `security` | `advisory` | `configured` | `mutable workflow refs, secret echo/debug workflow checks, non-blocking security scans` | `target/jankurai/language-bad-behavior.log` |
+| `git-bad-behavior` | `audit` | `advisory` | `configured` | `destructive git automation, force-push release scripts, hidden stash-based state` | `target/jankurai/language-bad-behavior.log` |
+| `release-bad-behavior` | `release` | `auto` | `configured` | `manual release checklist, ad hoc tag and artifact review, manual provenance review` | `target/jankurai/language-bad-behavior.log` |
 | `ux-qa` | `ux` | `auto` | `not_applicable` | `playwright, axe-core, visual baselines` | `target/jankurai/ux-qa.json` |
-| `db-migration-analyze` | `db` | `auto` | `not_applicable` | `manual migration review` | `target/jankurai/migration-report.json` |
+| `db-migration-analyze` | `db` | `auto` | `missing` | `manual migration review` | `target/jankurai/migration-report.json` |
 | `contract-drift` | `contract` | `auto` | `missing` | `handwritten contract drift checks, openapi diff` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
-| `rust-witness` | `rust` | `auto` | `missing` | `manual witness graphing` | `target/jankurai/rust/witness-graph.json` |
+| `rust-witness` | `rust` | `auto` | `configured` | `manual witness graphing` | `target/jankurai/rust/witness-graph.json` |
 | `vibe-coverage` | `audit` | `auto` | `not_applicable` | `manual vibe-coding coverage spreadsheet` | `target/jankurai/vibe-coverage.json, target/jankurai/vibe-coverage.md` |
 | `coverage-evidence` | `proof` | `auto` | `not_applicable` | `manual coverage report review, ad hoc mutation survivor review` | `target/jankurai/coverage/coverage-audit.json, target/jankurai/coverage/coverage-audit.md` |
 | `authz-matrix` | `security` | `auto` | `missing` | `manual authz matrix review` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
 | `input-boundary` | `security` | `auto` | `not_applicable` | `manual unsafe sink review` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
-| `agent-tool-supply` | `security` | `auto` | `missing` | `manual MCP/tool trust review` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
-| `release-readiness` | `release` | `auto` | `missing` | `manual launch checklist` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
-| `cost-budget` | `release` | `auto` | `not_applicable` | `manual spend review` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
+| `agent-tool-supply` | `security` | `advisory` | `configured` | `manual MCP/tool trust review` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
+| `release-readiness` | `release` | `auto` | `configured` | `manual launch checklist` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
+| `cost-budget` | `release` | `auto` | `configured` | `manual spend review` | `.jankurai/repo-score.json, .jankurai/repo-score.md` |
 
 ## Boundary Reclassifications
 
@@ -161,36 +183,288 @@ No audited runtime boundary reclassifications declared.
 
 ## Findings
 
-1. `medium` `security` `.github/workflows/jankurai.yml`
+1. `medium` `shape` `.`
+   Rule: `HLT-001-DEAD-MARKER`
+   Check: `HLT-001-DEAD-MARKER:shape` `soft` confidence `0.76`
+   Route: TLR `Entropy`, lane `fast`, owner `tools`
+   Docs: `docs/audit-rubric.md#future-hostile-language-rule`
+   Reason: `Code shape and semantic surface` scored 65 below the standard floor of 85
+   Fix: split large or ambiguous authored code into smaller semantic modules with focused tests
+   Rerun: `just fast`
+   Fingerprint: `sha256:c81ad19761769d41945a7917991aaa42098bb36e33fa5318bc5f32227e519756`
+   Evidence: largest authored code file: crates/xtask/src/commands/split_family.rs (579 LOC), code file exceeds 500 LOC, most code files stay under 300 LOC, copy-code advisory classes found: 23 (advisory only, no score impact)
+2. `medium` `security` `.github/workflows/jankurai.yml`
    Rule: `HLT-016-SUPPLY-CHAIN-DRIFT`
    Check: `HLT-016-SUPPLY-CHAIN-DRIFT:security` `soft` confidence `0.76`
-   Route: TLR `Security, secrets, agency`, lane `security`, owner `ops`
+   Route: TLR `Security, secrets, agency`, lane `security`, owner `ci-release`
    Docs: `docs/audit-rubric.md#top-level-risk-mapping`
    Reason: `Security and supply-chain posture` scored 80 below the standard floor of 85
    Fix: wire secret, dependency, provenance, and workflow scans into an operational CI lane
    Rerun: `just security`
    Fingerprint: `sha256:3e21704bc51e05ff9b3194cbc4eea62a77cce19f572ea9056e29ca3ce474c7bd`
    Evidence: lockfile present, secret or dependency scan tooling found, provenance/SBOM tooling found, workflow linting tooling found
-2. `medium` `proof` `Justfile`
+3. `medium` `proof` `Justfile`
    Rule: `HLT-018-PERF-CONCURRENCY-DRIFT`
    Check: `HLT-018-PERF-CONCURRENCY-DRIFT:proof` `soft` confidence `0.76`
-   Route: TLR `Verification`, lane `fast`, owner `workspace`
+   Route: TLR `Verification`, lane `fast`, owner `ci-release`
    Docs: `docs/testing.md`
-   Reason: `Build speed signals` scored 80 below the standard floor of 85
+   Reason: `Build speed signals` scored 30 below the standard floor of 85
    Fix: add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration
    Rerun: `just fast`
-   Fingerprint: `sha256:2f2531223d7f7036c20d44b58cd52e64aa53ffd6cb85e01e541c1feff0c09cb2`
-   Evidence: build acceleration markers found, targeted test/build commands found, locked dependency graph present, CI cache hint found
+   Fingerprint: `sha256:5a2a647775dcb2bfabb2b25a7bc50806600cb3d9e0da806eb6ff5379b36f84c5`
+   Evidence: locked dependency graph present
+4. `medium` `governance` `db/migrations/20260127222353_familiar_lady_ursula/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:07ceb174972f0832b48a3a110e9e0862efd5460d3f30ae14f944a84444ba25b2`
+   Evidence: `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+5. `medium` `governance` `db/migrations/20260127222353_familiar_lady_ursula/migration.sql`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:79b94e335731140d341fa94cafe410b6161c9ea45f4adfdbad25c4e4aacf8100`
+   Evidence: `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` was hand-edited inside declared generated zone `db/migrations/`
+6. `medium` `governance` `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:6cff897208aa619787dedd5bc1d19d73924e47941fe1497bbc25231b43f32b3b`
+   Evidence: `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`
+7. `medium` `governance` `db/migrations/20260211171708_add_project_commands/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260211171708_add_project_commands/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:559fe8ebbb9d3df791343a69d87962742f1b836ede14c00c1cd86074bb865b3e`
+   Evidence: `db/migrations/20260211171708_add_project_commands/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+8. `medium` `governance` `db/migrations/20260211171708_add_project_commands/migration.sql`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/migration.sql` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260211171708_add_project_commands/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:4a64f9c7335ab543d2b5bdd8d68ac4378858191d2f82dd2d786d7aace4d8bb4d`
+   Evidence: `db/migrations/20260211171708_add_project_commands/migration.sql` was hand-edited inside declared generated zone `db/migrations/`
+9. `medium` `governance` `db/migrations/20260211171708_add_project_commands/snapshot.json`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260211171708_add_project_commands/snapshot.json` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260211171708_add_project_commands/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:b442b2c4487d67d36080cdb928002ba9e4c5e3411c63dfc59a56d910b2c53fb4`
+   Evidence: `db/migrations/20260211171708_add_project_commands/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`
+10. `medium` `governance` `db/migrations/20260213144116_wakeful_the_professor/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:52de400ccb638c6f9b62f3fea7cec8d690ec20cb886585c08b1d0ae1973b16ec`
+   Evidence: `db/migrations/20260213144116_wakeful_the_professor/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+11. `medium` `governance` `db/migrations/20260213144116_wakeful_the_professor/migration.sql`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/migration.sql` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:14b6060d04623bb0d72b90e4ece2f863a41dc157001712311e4df947df8fdbce`
+   Evidence: `db/migrations/20260213144116_wakeful_the_professor/migration.sql` was hand-edited inside declared generated zone `db/migrations/`
+12. `medium` `governance` `db/migrations/20260213144116_wakeful_the_professor/snapshot.json`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:c2e593c14ac4902de509db42898c658d1bf1d058c2242c3ffcf80eda8ac55d94`
+   Evidence: `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`
+13. `medium` `governance` `db/migrations/20260225215848_workspace/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260225215848_workspace/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:f6456e7908f14b0559b0e77f2761bf02f740c091a21ec20440cb5d03377bd8b7`
+   Evidence: `db/migrations/20260225215848_workspace/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+14. `medium` `governance` `db/migrations/20260225215848_workspace/migration.sql`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/migration.sql` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260225215848_workspace/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:64aa529c5e0c4c02eef3710858bb601120ccdb885a0548ea2a772b22180b8e6b`
+   Evidence: `db/migrations/20260225215848_workspace/migration.sql` was hand-edited inside declared generated zone `db/migrations/`
+15. `medium` `governance` `db/migrations/20260225215848_workspace/snapshot.json`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260225215848_workspace/snapshot.json` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260225215848_workspace/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:6729cdc343425d1bb89844829777756925810501c9dd195fba85b19ea165374e`
+   Evidence: `db/migrations/20260225215848_workspace/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`
+16. `medium` `governance` `db/migrations/20260227213759_add_session_workspace_id/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:8ecf1dbc55791925bef61b1be03e5430f6987bf12088f04f73d5f03f47a6939e`
+   Evidence: `db/migrations/20260227213759_add_session_workspace_id/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+17. `medium` `governance` `db/migrations/20260227213759_add_session_workspace_id/migration.sql`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/migration.sql` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:7ee546b38f57c88fa5dba0e6048959083f3990a9e114af0cc91b54644a689af3`
+   Evidence: `db/migrations/20260227213759_add_session_workspace_id/migration.sql` was hand-edited inside declared generated zone `db/migrations/`
+18. `medium` `governance` `db/migrations/20260227213759_add_session_workspace_id/snapshot.json`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:216840905e114188cb3cdc7f8e2c0f51c1c8c17ee1e64a8055b2598d0b09f7d5`
+   Evidence: `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`
+19. `medium` `governance` `db/migrations/20260228203230_blue_harpoon/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:18d8ee8161b88953cee78bd218cb91ce6bab998ae3bc6d82f05636b9152ce9a3`
+   Evidence: `db/migrations/20260228203230_blue_harpoon/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+20. `medium` `governance` `db/migrations/20260228203230_blue_harpoon/migration.sql`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/migration.sql` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:4bba31a1d9c2d8b022a16ec43c86f353b84a2fa6905a272373fd2105415308d9`
+   Evidence: `db/migrations/20260228203230_blue_harpoon/migration.sql` was hand-edited inside declared generated zone `db/migrations/`
+21. `medium` `governance` `db/migrations/20260228203230_blue_harpoon/snapshot.json`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260228203230_blue_harpoon/snapshot.json` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:e9a7b131d1b10ceb45d2c62f6721dae1048211e2276fee8f6f588ccf441ad3f1`
+   Evidence: `db/migrations/20260228203230_blue_harpoon/snapshot.json` was hand-edited inside declared generated zone `db/migrations/`
+22. `medium` `governance` `db/migrations/20260303231226_add_workspace_fields/meta.toml`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/20260303231226_add_workspace_fields/meta.toml` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/20260303231226_add_workspace_fields/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:2e30bcfd53b007d697c7a6ab98f6a99148f3ac74efe1091d3d64f6849ee78e6e`
+   Evidence: `db/migrations/20260303231226_add_workspace_fields/meta.toml` was hand-edited inside declared generated zone `db/migrations/`
+23. `medium` `governance` `db/migrations/README.md`
+   Rule: `HLT-045-GENERATED-ZONE-GOVERNANCE`
+   Check: `HLT-045-GENERATED-ZONE-GOVERNANCE:governance` `soft` confidence `0.76`
+   Route: TLR `Contracts/data`, lane `contract`, owner `data`
+   Docs: `agent/JANKURAI_STANDARD.md#generated-zones`
+   Reason: generated zone `db/migrations/` has an uncommitted hand-edit at `db/migrations/README.md` instead of a regeneration
+   Fix: revert the in-place edit to `db/migrations/README.md` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Rerun: `just fast`
+   Fingerprint: `sha256:5d2fd628372810295d0ae592c0e855a290baacbccc16ee8f140e74b71231a186`
+   Evidence: `db/migrations/README.md` was hand-edited inside declared generated zone `db/migrations/`
 
 ## Policy
 
 - Policy file: `./agent/audit-policy.toml`
 - Minimum score: `85`
-- Fail on: `critical, high`
+- Fail on: ``
 
 ## Agent Fix Queue
 
-1. `medium` `HLT-018-PERF-CONCURRENCY-DRIFT` `Justfile` - add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration
+1. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` - revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+2. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` - revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+3. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` - revert the in-place edit to `db/migrations/20260127222353_familiar_lady_ursula/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+4. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260211171708_add_project_commands/meta.toml` - revert the in-place edit to `db/migrations/20260211171708_add_project_commands/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+5. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260211171708_add_project_commands/migration.sql` - revert the in-place edit to `db/migrations/20260211171708_add_project_commands/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+6. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260211171708_add_project_commands/snapshot.json` - revert the in-place edit to `db/migrations/20260211171708_add_project_commands/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+7. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260213144116_wakeful_the_professor/meta.toml` - revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+8. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260213144116_wakeful_the_professor/migration.sql` - revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+9. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` - revert the in-place edit to `db/migrations/20260213144116_wakeful_the_professor/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+10. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260225215848_workspace/meta.toml` - revert the in-place edit to `db/migrations/20260225215848_workspace/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+11. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260225215848_workspace/migration.sql` - revert the in-place edit to `db/migrations/20260225215848_workspace/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+12. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260225215848_workspace/snapshot.json` - revert the in-place edit to `db/migrations/20260225215848_workspace/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+13. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260227213759_add_session_workspace_id/meta.toml` - revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+14. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260227213759_add_session_workspace_id/migration.sql` - revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+15. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` - revert the in-place edit to `db/migrations/20260227213759_add_session_workspace_id/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+16. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260228203230_blue_harpoon/meta.toml` - revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+17. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260228203230_blue_harpoon/migration.sql` - revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/migration.sql` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+18. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260228203230_blue_harpoon/snapshot.json` - revert the in-place edit to `db/migrations/20260228203230_blue_harpoon/snapshot.json` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+19. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/20260303231226_add_workspace_fields/meta.toml` - revert the in-place edit to `db/migrations/20260303231226_add_workspace_fields/meta.toml` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+20. `medium` `HLT-045-GENERATED-ZONE-GOVERNANCE` `db/migrations/README.md` - revert the in-place edit to `db/migrations/README.md` and regenerate it from the declared source/command in `agent/generated-zones.toml`; do not patch generated output by hand
+   Route: `Contracts/data`/`contract`
+21. `medium` `HLT-018-PERF-CONCURRENCY-DRIFT` `Justfile` - add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration
    Route: `Verification`/`fast`
-2. `medium` `HLT-016-SUPPLY-CHAIN-DRIFT` `.github/workflows/jankurai.yml` - wire secret, dependency, provenance, and workflow scans into an operational CI lane
+22. `medium` `HLT-001-DEAD-MARKER` `.` - split large or ambiguous authored code into smaller semantic modules with focused tests
+   Route: `Entropy`/`fast`
+23. `medium` `HLT-016-SUPPLY-CHAIN-DRIFT` `.github/workflows/jankurai.yml` - wire secret, dependency, provenance, and workflow scans into an operational CI lane
    Route: `Security, secrets, agency`/`security`
