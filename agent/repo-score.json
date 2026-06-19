@@ -1,16 +1,16 @@
 {
-  "report_fingerprint": "sha256:884facbe6b43d8ec7b3120200633d328da1ea221417bab3d0b1e7abfee590c69",
-  "input_fingerprint": "sha256:e4a237b93773311f0720beb2d925046eb3517f5cd2f4307a4761f61144930b7f",
+  "report_fingerprint": "sha256:c7375f6d7c22a691fe2a1f7d06a436746ddf08e93f0b4be828b22095ae842229",
+  "input_fingerprint": "sha256:322bda11622a98fdba621455cd107b377ec8ca142bda15763df583975c22c9e5",
   "policy_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
   "manifest_fingerprints": {
-    "owner_map": "sha256:43180077858101f345c90afbb2c335a66ae95fe35b76bf9158340c28d390248c",
-    "test_map": "sha256:25492933acc3b0cc06281231cc5ad5f765fa269c07e7301f7201766f3aba453c",
+    "owner_map": "sha256:2feef47b6b6592bcf21012d269f833fcae1a6bf10b9789e09405b848833f7e87",
+    "test_map": "sha256:70e04d0efea95f738a815788ffffccee611557cdd7eccc5ddd73efb9e98adb3f",
     "generated_zones": "sha256:4abfb477fffea6a8188770acedaa56ead313947c05c107b74a5644345354723e",
     "boundaries": "sha256:9e6ae6cb13a4b2160f2831b4d872236ead279a02a9b316b6fa8a06b5c4296723",
     "standard_version": "sha256:27e5d92b64d86aacffcf8461e47e810188bca4716aaa6a2d1f74140d65ad220e"
   },
   "dirty_worktree": true,
-  "generated_at": "1781216454",
+  "generated_at": "1781828819",
   "schema_url": "schemas/repo-score.schema.json",
   "standard": "jankurai",
   "standard_version": "0.9.0",
@@ -24,23 +24,23 @@
   "conformance_decision": "pass",
   "conformance_blockers": [],
   "repo": ".",
-  "run_id": "1781216454",
-  "started_at": "1781216454",
-  "elapsed_ms": 53,
+  "run_id": "1781828819",
+  "started_at": "1781828819",
+  "elapsed_ms": 627,
   "scope": {
     "mode": "full",
     "paths": []
   },
-  "score": 86,
-  "raw_score": 86,
+  "score": 87,
+  "raw_score": 87,
   "decision": {
     "status": "advisory",
     "minimum_score": 85,
     "passed": true,
     "hard_findings": 0,
-    "soft_findings": 2,
+    "soft_findings": 3,
     "ratchet": {
-      "baseline_score": 86,
+      "baseline_score": 87,
       "allowed_drop": 0,
       "passed": true,
       "score_delta": 0,
@@ -53,7 +53,7 @@
     }
   },
   "git": {
-    "head": "68b3a01",
+    "head": "5356b4d",
     "base": null,
     "changed_files": 0,
     "mode": "full",
@@ -290,14 +290,16 @@
     {
       "name": "Contract and boundary integrity",
       "weight": 13,
-      "score": 93,
-      "weighted_points": 12.09,
+      "score": 100,
+      "weighted_points": 13.0,
       "evidence": [
+        "contract surface found",
         "generated contract artifacts found",
         "polyglot boundary layout present",
         "boundary manifest present",
         "machine-readable schemas present",
         "Rust typed boundary helpers found",
+        "all contract sources have generated zone entries",
         "schema/tooling contract posture is clean"
       ],
       "notes": []
@@ -367,10 +369,11 @@
     {
       "name": "Observability and repair evidence",
       "weight": 8,
-      "score": 85,
-      "weighted_points": 6.8,
+      "score": 93,
+      "weighted_points": 7.44,
       "evidence": [
         "ops/observability directory present",
+        "repair receipts or raw artifact language found",
         "repair queue schema is present",
         "agent-friendly exception pattern found",
         "repair-hint and receipt convention are documented",
@@ -400,7 +403,7 @@
       "weighted_points": 0.7,
       "evidence": [
         "control-plane files present",
-        "applicable=14",
+        "applicable=15",
         "configured=0",
         "ci_evidence=0",
         "artifact_verified=0"
@@ -444,20 +447,24 @@
     "has_rendered_ux_lane": true,
     "missing_categories": [],
     "evidence": {
-      "accessibility": [],
+      "accessibility": [
+        ".jankurai/repo-score.json"
+      ],
       "api_mocks": [],
       "artifact_backed_proof": [],
       "design_tokens": [],
       "geometry_runtime": [],
       "layout_stability": [],
       "playwright_visual": [],
-      "storybook": [],
+      "storybook": [
+        ".jankurai/repo-score.json"
+      ],
       "visual_review": []
     }
   },
   "tool_adoption": {
     "control_plane_present": true,
-    "applicable_count": 14,
+    "applicable_count": 15,
     "configured_count": 0,
     "ci_evidence_count": 0,
     "artifact_verified_count": 0,
@@ -900,15 +907,18 @@
         "id": "cost-budget",
         "category": "release",
         "mode": "auto",
-        "applicable": false,
-        "status": "not_applicable",
+        "applicable": true,
+        "status": "missing",
         "replaced_tools": [
           "manual spend review"
         ],
         "evidence": [
           "mode=auto"
         ],
-        "missing": [],
+        "missing": [
+          "agent/tool-adoption.toml entry",
+          "CI command evidence"
+        ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
         "ci_command": "jankurai audit . --mode ratchet --baseline target/jankurai/accepted-baseline.json --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md",
         "artifact_paths": [
@@ -918,7 +928,7 @@
       }
     ],
     "evidence": {
-      "applicable_count": 14,
+      "applicable_count": 15,
       "applicable_tools": [
         "audit-ci",
         "proof-routing",
@@ -933,7 +943,8 @@
         "rust-witness",
         "authz-matrix",
         "agent-tool-supply",
-        "release-readiness"
+        "release-readiness",
+        "cost-budget"
       ],
       "artifact_verified_count": 0,
       "artifact_verified_tools": [],
@@ -958,7 +969,8 @@
       "rust-witness",
       "authz-matrix",
       "agent-tool-supply",
-      "release-readiness"
+      "release-readiness",
+      "cost-budget"
     ]
   },
   "security_evidence": {},
@@ -968,7 +980,7 @@
   "copy_code": {
     "schema_version": "1.1.0",
     "generated_by": "jankurai copy-code",
-    "generated_at": "2026-06-11T22:20:53.979743762+00:00",
+    "generated_at": "2026-06-19T00:26:58.827525195+00:00",
     "repo": ".",
     "auditor_version": "1.6.10",
     "status": "review",
@@ -1006,7 +1018,7 @@
       ]
     },
     "summary": {
-      "files_scanned": 48,
+      "files_scanned": 52,
       "files_considered": 2,
       "active_files": 2,
       "exact_file_classes": 0,
@@ -1339,6 +1351,29 @@
       "lane": "fast",
       "docs_url": "docs/testing.md",
       "owner": "workspace"
+    },
+    {
+      "severity": "medium",
+      "category": "release",
+      "path": "docs/testing.md",
+      "problem": "cost or spend-risk surface lacks budget proof",
+      "agent_fix": "add explicit budgets, quotas, stop conditions, and kill-switch evidence for paid or unbounded operations",
+      "evidence": [
+        "cost surface found without budget/stop-condition policy"
+      ],
+      "check_id": "HLT-026-COST-BUDGET-GAP:release",
+      "hardness": "soft",
+      "confidence": 0.88,
+      "evidence_kind": "policy-manifest",
+      "rerun_command": "just check",
+      "fingerprint": "sha256:edd248b7afc24b644107205fa5b84a88103ac4b622009ff9f19b779de8798f59",
+      "rule_id": "HLT-026-COST-BUDGET-GAP",
+      "tlr": "Verification",
+      "lane": "release",
+      "docs_url": "docs/testing.md",
+      "owner": "standard",
+      "matched_term": "budget",
+      "reason": "unbounded paid work needs budgets and stop conditions"
     }
   ],
   "agent_fix_queue": [
@@ -1351,6 +1386,16 @@
       "owner": "workspace",
       "task": "add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration",
       "why": "`Build speed signals` scored 80 below the standard floor of 85"
+    },
+    {
+      "path": "docs/testing.md",
+      "priority": "medium",
+      "rule_id": "HLT-026-COST-BUDGET-GAP",
+      "tlr": "Verification",
+      "lane": "release",
+      "owner": "standard",
+      "task": "add explicit budgets, quotas, stop conditions, and kill-switch evidence for paid or unbounded operations",
+      "why": "cost or spend-risk surface lacks budget proof"
     },
     {
       "path": ".github/workflows/jankurai.yml",

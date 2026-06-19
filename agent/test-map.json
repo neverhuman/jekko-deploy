@@ -12,6 +12,10 @@
       "command": "bash scripts/ci-local.sh",
       "purpose": "verify GitLab dispatch stays aligned with local CI wrappers"
     },
+    ".jankurai/": {
+      "command": "bash ops/ci/jankurai.sh",
+      "purpose": "verify generated score artifacts and history stay reproducible"
+    },
     "AGENTS.md": {
       "command": "just fast",
       "purpose": "verify repo instructions stay visible"

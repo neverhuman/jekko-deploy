@@ -3,6 +3,7 @@
     ".github/": "ops",
     ".gitignore": "agent",
     ".gitlab-ci.yml": "ops",
+    ".jankurai/": "agent",
     "AGENTS.md": "agent",
     "Cargo.lock": "workspace",
     "Cargo.toml": "workspace",
